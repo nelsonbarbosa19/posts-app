@@ -1,6 +1,6 @@
 # Posts App
 
-A modern React application that demonstrates best practices in React development, state management, and API integration. This project was built as a code challenge for a React interview. The application was built from scratch with the intention to use the latest versions of all libraries and React technologies.
+A modern React application that demonstrates best practices in React development, state management, and API integration. The application was built from scratch with the intention to use the latest versions of all libraries and React technologies.
 
 ## Installation and Setup
 
@@ -9,20 +9,14 @@ A modern React application that demonstrates best practices in React development
 - Node.js version: 22.14.0 (as specified in `.nvmrc`)
 - Package manager: pnpm
 
-pnpm is preferred over npm for several key reasons:
-
-- **Disk space efficiency**: pnpm uses a content-addressable store which saves disk space by avoiding duplication of packages across projects
-- **Performance**: Significantly faster installation times compared to npm
-- **Strict dependency resolution**: Prevents phantom dependencies and ensures a more reliable dependency tree
-- **Monorepo support**: Better built-in support for monorepo projects with workspaces
-- **Compatibility**: Fully compatible with the npm ecosystem while providing additional benefits
+(pnpm is preferred over npm for this reasons: performance, disk space efficiency and more reliable dependency tree)
 
 ### Getting Started
 
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/nelsonbarbosa19/posts-app.git
    cd postsApp
    ```
 
@@ -49,6 +43,28 @@ pnpm is preferred over npm for several key reasons:
    pnpm test
    ```
 
+## Project Structure
+
+```
+src/
+├── assets/         # Static assets
+├── components/     # Reusable UI components following Atomic Design
+│   ├── atoms/      # Smallest building blocks (buttons, inputs, labels)
+│   ├── molecules/  # Simple combinations of atoms (form fields, menu items)
+│   ├── organisms/  # Complex UI components (forms, headers, footers)
+│   ├── templates/  # Page layouts without specific content
+│   └── __tests__/  # Component tests
+├── pages/          # Route components (composed of templates and organisms)
+├── services/       # API integration
+├── store/          # State management
+├── utils/          # Utility functions
+│   ├── lazyLoad/   # Code splitting utilities
+│   ├── theme/      # Styling theme
+│   └── useRetrieve.ts # Data fetching utility
+├── App.tsx         # Main application component
+└── main.tsx        # Application entry point
+```
+
 ## Technologies and Architecture
 
 ### Core Technologies
@@ -57,10 +73,19 @@ pnpm is preferred over npm for several key reasons:
 - **TypeScript**: For type safety and improved developer experience
 - **Vite**: Modern build tool that provides fast HMR and optimized production builds
 - **React Router v7**: For declarative routing with the latest features
-- **Zustand**: Lightweight state management with a simple API
+- **Zustand**: Lightweight state management with a simple API.
 - **Emotion**: CSS-in-JS library for component-based styling
 - **Axios**: Promise-based HTTP client for API requests
 - **Jest & React Testing Library**: For comprehensive testing
+
+## Key React Features Utilized
+
+1. **Hooks**: Extensive use of built-in and custom hooks
+2. **Context API**: For theme and global state
+3. **Error Boundaries**: For graceful error handling
+4. **Suspense & Lazy Loading**: For code splitting and loading states
+5. **Functional Components**: Modern React patterns with function components
+6. **TypeScript Integration**: Full type safety throughout the application
 
 ### State Management
 
@@ -111,55 +136,19 @@ The application uses Emotion for styling:
 
 - **Code Splitting**: Lazy loading of routes and components
 - **Memoization**: Using React.memo and useMemo for expensive computations
-- **Virtualization**: Efficient rendering of large lists
 - **Suspense**: For loading states and improved user experience
 
 ### Testing Strategy
 
 - **Jest**: For unit and integration tests
 - **React Testing Library**: For component testing with user-centric approach
-- **Mock Service Worker**: For API mocking
-- **Test Coverage**: Comprehensive test coverage for critical paths
 
 All tests are organized in `__tests__` folders located within their respective feature directories. This structure ensures that tests are co-located with the code they're testing, making it easier to maintain and update tests when the implementation changes.
-
-## Project Structure
-
-```
-src/
-├── assets/         # Static assets
-├── components/     # Reusable UI components following Atomic Design
-│   ├── atoms/      # Smallest building blocks (buttons, inputs, labels)
-│   ├── molecules/  # Simple combinations of atoms (form fields, menu items)
-│   ├── organisms/  # Complex UI components (forms, headers, footers)
-│   ├── templates/  # Page layouts without specific content
-│   └── __tests__/  # Component tests
-├── pages/          # Route components (composed of templates and organisms)
-├── services/       # API integration
-├── store/          # State management
-├── utils/          # Utility functions
-│   ├── lazyLoad/   # Code splitting utilities
-│   ├── theme/      # Styling theme
-│   └── useRetrieve.ts # Data fetching utility
-├── App.tsx         # Main application component
-└── main.tsx        # Application entry point
-```
-
-## Key React Features Utilized
-
-1. **Hooks**: Extensive use of built-in and custom hooks
-2. **Context API**: For theme and global state
-3. **Error Boundaries**: For graceful error handling
-4. **Suspense & Lazy Loading**: For code splitting and loading states
-5. **Functional Components**: Modern React patterns with function components
-6. **TypeScript Integration**: Full type safety throughout the application
 
 ## Development Practices
 
 - **ESLint & Prettier**: For code quality and consistent formatting
-- **Git Workflow**: Feature branches and pull requests
-- **CI/CD**: Automated testing and deployment
-- **Documentation**: Comprehensive code comments and documentation
+- **Documentation**: Comprehensive code comments
 
 # Posts App Business Requirements:
 
