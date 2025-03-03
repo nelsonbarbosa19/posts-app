@@ -21,7 +21,7 @@ Nelson Barbosa
 
    ```bash
    git clone https://github.com/nelsonbarbosa19/posts-app.git
-   cd postsApp
+   cd posts-app
    ```
 
 2. Install dependencies:
