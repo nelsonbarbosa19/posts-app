@@ -1,6 +1,10 @@
 # Posts App
 
-A modern React application that demonstrates best practices in React development, state management, and API integration. The application was built from scratch with the intention to use the latest versions of all libraries and React technologies.
+A React application that demonstrates best practices in React development, state management, and API integration. The application was built from scratch with the intention to give a small demonstration of the latest versions of libraries and React technologies that I have used throughout my career.
+
+The project focuses on demonstrating React best practices and modern technologies, rather than complex styling and layout (though the app remains fully responsive) or creating a large number of screens.
+
+Nelson Barbosa
 
 ## Installation and Setup
 
@@ -89,31 +93,27 @@ src/
 
 ### State Management
 
-The application uses Zustand for state management, which offers several advantages:
+The application uses Zustand for state management:
 
-- **Simplicity**: Minimal boilerplate compared to Redux
-- **Middleware Support**: Using immer for immutable state updates and persist for local storage persistence
-- **Selector Pattern**: Efficient state access with built-in selectors
+- **Middleware Support**: Configured to use immer for immutable state updates and persist for local storage persistence
+- **Selector Pattern**: Efficient state access with selectors
 - **TypeScript Integration**: Full type safety for state and actions
 
 ### API Integration
 
 The application uses a custom hook-based approach for API integration:
 
-- **Custom Hooks**: Encapsulated API logic in reusable hooks
 - **Axios**: For HTTP requests with interceptors
-- **Error Handling**: Centralized error handling with React Router navigation
-- **TypeScript Interfaces**: Strong typing for API requests and responses
-- **Manual Type Definitions**: All API responses were manually typed with TypeScript interfaces rather than using automated tools, ensuring precise type safety and better documentation of the data structures
+- **Custom Hooks**: Encapsulated API logic in reusable hooks
+- **Error Handling**: Centralized error handling with React Router navigation to error page
+- **TypeScript Type Definitions**: All API responses were manually typed with TypeScript interfaces
 
-### Component Architecture
+### Components Architecture
 
 The application follows a modular component architecture based on Atomic Design principles:
 
 - **Atomic Design Implementation**: Components are organized following the atomic design methodology (atoms, molecules, organisms, templates, and pages)
 - **Component Composition**: Building complex UIs from simple components, where atoms combine to form molecules, molecules combine to form organisms, and so on
-- **Lazy Loading**: Code splitting with React.lazy and dynamic imports
-- **Error Boundaries**: Graceful error handling with React Error Boundary
 
 Each component follows a consistent file structure:
 
