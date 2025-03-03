@@ -7,6 +7,7 @@ import { useAppStore } from '../../store';
 export const usePostDetail = () => {
   const navigate = useNavigate();
   const { id } = useParams(); // Get the post ID
+
   const { retrieve: retrieveComments } = useRetrieveComments();
 
   const { posts, users } = useAppStore();

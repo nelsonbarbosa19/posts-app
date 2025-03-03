@@ -1,6 +1,6 @@
 # Posts App
 
-A React application that demonstrates best practices in React development, state management, and API integration. The application was built from scratch with the intention to give a small demonstration of the latest versions of libraries and React technologies that I have used throughout my career.
+Posts App is a React application where users can inspect posts and their associated comments. This project was built to demonstrate best practices in React development, state management, and API integration. The application was created from scratch to showcase modern libraries and React technologies that I have utilized throughout my career.
 
 The project focuses on demonstrating React best practices and modern technologies, rather than complex styling and layout (though the app remains fully responsive) or creating a large number of screens.
 
@@ -81,6 +81,7 @@ src/
 - **Emotion**: CSS-in-JS library for component-based styling
 - **Axios**: Promise-based HTTP client for API requests
 - **Jest & React Testing Library**: For comprehensive testing
+- **React Hook Form & Zod**: For form handling and validation with type-safe schemas
 
 ## Key React Features Utilized
 

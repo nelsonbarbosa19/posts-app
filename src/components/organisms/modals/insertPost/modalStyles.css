@@ -1,0 +1,51 @@
+/* Modal Styles */
+.ReactModal__Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ReactModal__Content {
+  position: relative;
+  background: #fff !important;
+  border-radius: 10px !important;
+  padding: 20px !important;
+  /*max-width: 500px;
+  margin: 0 auto;
+  position: relative;*/
+
+  margin-top: 20%;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 20%;
+  /* marginRight: '-50%',
+  transform: 'translate(-50%, -50%)', */
+  width: 100%;
+  max-width: 1000px;
+  /*padding: '20px',
+  borderRadius: '8px',*/
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Close Button in Modal */
+.ReactModal__Content button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+  transition: background 0.2s;
+}
+
+.ReactModal__Content button:hover {
+  background: #0056b3;
+}

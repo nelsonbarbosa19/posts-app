@@ -3,6 +3,7 @@ import { useRetrieve } from '../utils';
 
 export const useRetrieveUsers = () => {
   const { retrieve } = useRetrieve<undefined, UserItemServiceOutput[]>({
+    method: 'GET',
     endpoint: '/users',
   });
 

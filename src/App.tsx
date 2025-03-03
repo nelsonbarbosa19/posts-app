@@ -4,8 +4,9 @@ import {
   RouteObject,
   RouterProvider,
 } from 'react-router-dom';
-import { PageBase, CustomErrorBoundary } from './components';
+import { PageBase } from './components';
 import { lazyLoad } from './utils/lazyLoad';
+import { CustomErrorBoundary } from './utils/components';
 
 function App() {
   // Lazy-loaded pages

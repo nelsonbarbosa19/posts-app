@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-export interface RetrieveProps {
-  endpoint: string; //Endpoint;
+export interface RetrieveProps extends Pick<AxiosRequestConfig, 'method'> {
+  endpoint: string;
 }
 
 export interface RetrieveOutput<TInput, TOutput> {
@@ -15,16 +15,17 @@ export interface RetrieveDataOutput<TOutput> {
 }
 
 const baseUrl = 'https://jsonplaceholder.typicode.com';
+
 export const useRetrieve = <
-  TInput extends Record<string, string | number> | undefined,
+  TInput, // extends Record<string, string | number> | undefined,
   TOutput,
 >({
+  method,
   endpoint,
 }: RetrieveProps): RetrieveOutput<TInput, TOutput> => {
   const navigate = useNavigate();
 
   const commonHeaders = {
-    // 'Content-Type': 'application/json',
     Accept: 'application/json',
     //'Authorization': `Bearer ${token}`
   };
@@ -36,22 +37,48 @@ export const useRetrieve = <
       console.log('retrieve requestData: ' + JSON.stringify(requestData));
 
       /* Convert requestData to queryString */
-      const queryString = requestData
-        ? Object.entries(requestData)
-            .map(
-              ([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`
-            )
-            .join('&')
-        : '';
+      // const queryString = requestData
+      //   ? Object.entries(requestData)
+      //       .map(
+      //         ([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`
+      //       )
+      //       .join('&')
+      //   : '';
 
-      axios
-        .get(baseUrl + endpoint + (queryString ? '?' + queryString : ''), {
-          headers: {
-            ...commonHeaders,
-          },
-        })
+      const overrideHeaders =
+        method === 'POST' || method === 'PUT' || method === 'PATCH'
+          ? { 'Content-type': 'application/json; charset=UTF-8' }
+          : {};
+
+      const requestConfig: AxiosRequestConfig = {
+        method: method,
+        baseURL: baseUrl,
+        url: endpoint,
+        // For GET requests, use params for URL parameters
+        ...(method === 'GET' && { params: requestData }),
+        // For POST, PUT, PATCH requests, use data for request body
+        ...((method === 'POST' || method === 'PUT' || method === 'PATCH') && {
+          data: requestData,
+        }),
+        headers: {
+          ...commonHeaders,
+          ...overrideHeaders,
+        },
+      };
+
+      // axios
+      //   .get(baseUrl + endpoint + (queryString ? '?' + queryString : ''), {
+      //     headers: {
+      //       ...commonHeaders,
+      //     },
+      //   })
+      axios(requestConfig)
         .then((response) => {
-          if (!response.data || response.status !== 200) {
+          debugger;
+          if (
+            !response.data ||
+            !(response.status === 200 || response.status === 201)
+          ) {
             resolve({
               data: undefined,
               success: false,

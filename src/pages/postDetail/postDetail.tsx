@@ -1,6 +1,5 @@
 import { usePostDetail } from './postDetail.hook';
-import { CommentsList } from '../../components';
-import { PostItem } from '../../components';
+import { CommentsList, PostItem } from '../../components';
 import { PostDetailContainer, CommentsTitle } from './postDetail.styles';
 
 export const PostDetail: React.FC = () => {

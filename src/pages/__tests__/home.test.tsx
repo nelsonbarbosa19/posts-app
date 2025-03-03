@@ -1,11 +1,11 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Home } from '../home/home';
-import { BrowserRouter } from 'react-router-dom';
 import { useHome } from '../home/home.hook';
 import * as router from 'react-router-dom';
 import { PostItemType } from '../../components/molecules/postItem/index.ts';
-import { ThemeProvider } from '../../utils/theme/index.ts';
+import { ThemeProvider } from '../../utils/theme';
+import { BrowserRouter } from 'react-router-dom';
 
 // Mock do hook useHome
 jest.mock('../home/home.hook', () => ({
@@ -46,7 +46,18 @@ describe('Pages/Home', () => {
     mockUseHome.mockReturnValue({
       postsList: mockPosts,
       onSelectPost: jest.fn(),
+      setPostsList: jest.fn(),
+      users: [],
+      posts: [],
+      setPosts: jest.fn(),
     });
+
+    const container = document.getElementById('root');
+    if (!container) {
+      throw new Error(
+        'Root element not found. Make sure setupTests.ts is properly configured.'
+      );
+    }
 
     // Render the component
     render(
@@ -54,7 +65,8 @@ describe('Pages/Home', () => {
         <BrowserRouter>
           <Home />
         </BrowserRouter>
-      </ThemeProvider>
+      </ThemeProvider>,
+      { container }
     );
 
     // Verify that posts are rendered
@@ -80,14 +92,27 @@ describe('Pages/Home', () => {
     mockUseHome.mockReturnValue({
       postsList: [mockPost],
       onSelectPost: mockOnSelectPost,
+      setPostsList: jest.fn(),
+      users: [],
+      posts: [],
+      setPosts: jest.fn(),
     });
 
+    const container = document.getElementById('root');
+    if (!container) {
+      throw new Error(
+        'Root element not found. Make sure setupTests.ts is properly configured.'
+      );
+    }
+
+    // Render the component
     render(
       <ThemeProvider>
         <BrowserRouter>
           <Home />
         </BrowserRouter>
-      </ThemeProvider>
+      </ThemeProvider>,
+      { container }
     );
 
     // Find and click the "View comments" button

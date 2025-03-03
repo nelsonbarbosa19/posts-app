@@ -88,5 +88,5 @@ export const useHome = () => {
     [navigate]
   );
 
-  return { postsList, onSelectPost };
+  return { postsList, onSelectPost, setPostsList, users, posts, setPosts };
 };

@@ -6,6 +6,7 @@ export const useRetrieveComments = () => {
     { postId: number },
     CommentItemServiceOutput[]
   >({
+    method: 'GET',
     endpoint: '/comments',
   });
 

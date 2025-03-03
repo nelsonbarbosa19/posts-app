@@ -3,7 +3,5 @@ export * from './molecules/postItem';
 export * from './molecules/commentsList';
 export * from './molecules/commentItem';
 export * from './templates/pageBase';
-export * from './organisms/footer';
-export * from './organisms/header';
 export * from './atoms/button';
-export * from '../utils/components/customErrorBoundary';
+export * from './organisms';
