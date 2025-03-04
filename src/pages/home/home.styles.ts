@@ -19,6 +19,13 @@ export const PostsTitle = styled.h3`
 
 export const AddPostButton = styled(Button)`
   align-self: flex-end;
-  margin-right: 20px;
-  margin-bottom: 20px;
+`;
+
+export const PostsHeaderContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 30px;
+  margin-top: 20px;
 `;

@@ -1,7 +1,12 @@
 import { useCallback, useState } from 'react';
 import { PostItemType, PostsList } from '../../components';
 import { useHome } from './home.hook';
-import { HomeContainer, PostsTitle, AddPostButton } from './home.styles';
+import {
+  HomeContainer,
+  PostsTitle,
+  AddPostButton,
+  PostsHeaderContainer,
+} from './home.styles';
 import { InsertPost } from '../../components/organisms/modals/insertPost';
 import {
   PostItemServiceInput,
@@ -61,10 +66,12 @@ export const Home: React.FC = () => {
 
   return postsList ? (
     <HomeContainer>
-      <PostsTitle>Posts</PostsTitle>
-      <AddPostButton onClick={() => setIsOpenNewPostModal(true)}>
-        Add Post
-      </AddPostButton>
+      <PostsHeaderContainer>
+        <PostsTitle style={{ margin: 0 }}>Posts</PostsTitle>
+        <AddPostButton onClick={() => setIsOpenNewPostModal(true)}>
+          Add Post
+        </AddPostButton>
+      </PostsHeaderContainer>
       <InsertPost
         handleNewPost={handleNewPost}
         isOpen={isOpenNewPostModal}
